@@ -7,7 +7,31 @@
 	<link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css"/>
 	<script src="./js/jquery-1.11.1.min.js"></script>
 	<script src="./js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	<script src="cordova.js"></script>
+	<script>
+			  new Chart("myChart1", {
+	  type: "doughnut",
+	  data: {
+		labels: [
+		'여자',
+		'남자',
+	  ],
+	  datasets: [{
+		label: 'My First Dataset',
+		data: [85, 15],
+		backgroundColor: [
+		  'rgb(255, 99, 132)',
+		  'rgb(54, 162, 235)',
+		],
+		hoverOffset: 4
+	  }]
+		},
+		options:{
+			display:true
+		}
+	});
+</script>
 <style>
    li { list-style:none; }
   .picture { list-style:none; padding:0; margin:0; }
@@ -30,27 +54,12 @@
 		<div data-role="content" style="text-align:center">
 				<img src="symbol.png" style="width:300px">
 			<ul data-role="listview" data-inset="true">
-				<li><a href="#university">학교 소개</a></li>
 				<li><a href="#intro">학과 소개</a></li>
-				<li><a href="#intro">상세 교육 과정</a></li>
+				<li><a href="#curriculum">졸업 학점 구조표</a></li>
 				<li><a href="#professor">교수진 소개</a></li>
-				<li><a href="#roadmap">오시는 길 </a></li>
 			</ul>
 		</div>
 		<div data-role="footer" data-position="fixed" data-theme="a">
-			<h1>소프트웨어학과 18학번 조대훈</h1>
-		</div>
-	</div>
-
-	<div data-role="page" id="university"  data-theme="a"> <!-- 학교 소개 -->
-		<div data-role="header" data-position="fixed"  data-theme="a">
-			<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
-			<h1>학교 소개</h1>
-		</div>
-		<div data-role="content">
-			<!--지도-->
-		</div>
-		<div data-role="footer" data-position="fixed" data-theme="b">
 			<h1>소프트웨어학과 18학번 조대훈</h1>
 		</div>
 	</div>
@@ -82,7 +91,7 @@
 				</div>
 			</div>
 		</div>
-		<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="footer" data-position="fixed" data-theme="a">
 			<h1>소프트웨어학과 18학번 조대훈</h1>
 		</div>
 	</div> <!-- 학과 소개 -->
@@ -90,41 +99,58 @@
 	<div data-role="page" id="curriculum"  data-theme="a"> <!-- 학교 소개 -->
 		<div data-role="header" data-position="fixed"  data-theme="a">
 			<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
-			<h1>학교 소개</h1>
+			<h1>졸업 학점 구조표</h1>
 		</div>
 		<div data-role="content">
-			<!--js-chart 원형 차트 쓰기-->
+			<canvas id="myChart" style="height:300px;max-width:700px"></canvas>
 		</div>
-		<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="footer" data-position="fixed" data-theme="a">
 			<h1>소프트웨어학과 18학번 조대훈</h1>
 		</div>
 	</div>
+	<script>
+	new Chart("myChart", {
+	  type: "doughnut",
+	  data: {
+		labels: [
+    		'기초교양',
+			'공학기초',
+			'전공기초',
+			'전공'
+  		],
+		  datasets: [{
+			label: 'My First Dataset',
+			data: [14, 12, 21, 60],
+			backgroundColor: [
+			  'rgb(255, 99, 132)',
+			  'rgb(54, 162, 235)',
+			  'rgb(255, 205, 86)',
+			  'rgb(54, 255, 54)'
+			],
+			hoverOffset: 4
+		  }]
+	  }
+	});
+</script>
 
 	<div data-role="page" id="professor"  data-theme="a"> <!-- 교수진 소개 -->
 		<div data-role="header" data-position="fixed"  data-theme="a">
 			<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
 			<h1>교수진 소개</h1>
 		</div>
-		<div data-role="content">
-			<!--지도-->
+		<div data-role="content" style="width:100%">
+			<img src="캡처.PNG" style="width:100%">
+			<img src="캡처1.PNG" style="width:100%">
+			<img src="3.PNG" style="width:100%">
+			<img src="4.PNG" style="width:100%">
+			<img src="5.PNG" style="width:100%">
+			<img src="6.PNG" style="width:100%">
 		</div>
-		<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="footer" data-position="fixed" data-theme="a">
 			<h1>소프트웨어학과 18학번 조대훈</h1>
 		</div>
 	</div>
 
-	<div data-role="page" id="roadmap"  data-theme="a"> <!-- 지도 & 길 소개 -->
-		<div data-role="header" data-position="fixed"  data-theme="a">
-			<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
-			<h1>오시는 길</h1>
-		</div>
-		<div data-role="content">
-			<!--지도-->
-		</div>
-		<div data-role="footer" data-position="fixed" data-theme="b">
-			<h1>소프트웨어학과 18학번 조대훈</h1>
-		</div>
-	</div>
 </div>
 </body>
 </html>
